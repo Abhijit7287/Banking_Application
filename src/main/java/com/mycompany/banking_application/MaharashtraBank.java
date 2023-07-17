@@ -17,14 +17,10 @@ public class MaharashtraBank implements RBI_Interface {
     private String password;
     private double balance; 
     
-    public MaharashtraBank(String accNo,String passWord,double balance){
+    public MaharashtraBank(String accNo,String password,double balance){
         this.AccountNo = accNo;
         this.password = password;
         this.balance = balance;
-    }
-
-    MaharashtraBank(Integer deposit, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String AddMoney(int money) {
@@ -39,13 +35,13 @@ public class MaharashtraBank implements RBI_Interface {
         }
     }
 
-    public String WithdrawMoney(int money,String password) {
+    public String WithdrawMoney(int money,String pass) {
         
-        if(this.password==password){
+        if(this.password == pass){
          
-           if(balance-money>0){
+           if(balance-money>=0){
             balance-=money;
-            return "Money"+money+"has been deducted from your account";
+            return "Money "+money+" has been deducted from your account";
            }else{
                return "Insufficent Balance";
            }
@@ -54,9 +50,9 @@ public class MaharashtraBank implements RBI_Interface {
         }
     }
 
-    public String CheckBalance(String password) {
+    public String CheckBalance(String pass) {
         
-       if(this.password==password){
+       if(this.password==pass){
            return "Your account balance is "+balance+" ruppes";
        }else{
            return "wrong password";

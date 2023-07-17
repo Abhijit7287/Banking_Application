@@ -16,7 +16,7 @@ public class BankOfBharat implements RBI_Interface {
     private double balance; 
     private double minimumBalance = 500;
     
-    public BankOfBharat (String accNo,String passWord,double balance){
+    public BankOfBharat (String accNo,String password,double balance){
         this.AccountNo = accNo;
         this.password = password;
         this.balance = balance;
@@ -42,7 +42,7 @@ public class BankOfBharat implements RBI_Interface {
          
            if(balance-minimumBalance>money){
             balance-=money;
-            return "Money"+money+"has been deducted from your account";
+            return "Money "+money+" has been deducted from your account";
            }else{
                return "Insufficent Balance , Minimum balance needed is"+minimumBalance;
            }
@@ -55,7 +55,7 @@ public class BankOfBharat implements RBI_Interface {
     public String CheckBalance(String password) {
         
        if(this.password==password){
-           return "Your account balance is "+balance+" ruppes";
+           return "Your account balance is "+balance+" rupees";
        }else{
            return "wrong password";
        }
